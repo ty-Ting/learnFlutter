@@ -1,3 +1,9 @@
+/*
+ * @Author: tanyanting
+ * @Date: 2020-01-07 14:23:31
+ * @Last Modified by: tanyanting
+ * @Last Modified time: 2020-01-07 14:26:27
+ */
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
