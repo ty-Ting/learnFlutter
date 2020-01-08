@@ -16,7 +16,7 @@ void walk() {
   // 遍历JSON目录生成模版
   var src = new Directory(SRC);
   var list = src.listSync();
-  var template = new File("./template.dart").readAsStringSync();
+  var template = new File("lib/common/template").readAsStringSync();
   File file;
   list.forEach((f) {
     if (FileSystemEntity.isFileSync(f.path)) {
@@ -35,7 +35,7 @@ void walk() {
         attrs.write(getType(v, set, name));
         attrs.write(" ");
         attrs.write(key);
-        attrs.writeIn(";");
+        attrs.writeln(";");
         attrs.write("    ");
       });
       String className = name[0].toUpperCase() + name.substring(1);
@@ -76,14 +76,14 @@ String getType(v, Set<String> set, String current) {
     return "List";
   } else if (v is String) {
     if (v.startsWith("$TAG[]")) {
-      var className = changeFirstChar(v.substring(3),false);
+      var className = changeFirstChar(v.substring(3), false);
       if (className.toLowerCase() != current) {
         set.add('import "$className.dart"');
       }
-      return "List<${changeFirstCar(className)}>";
-    } else if(v.startsWith(TAG)) {
-      var fileName = changeFirstChar(v.substring(1).false);
-      if(fileName.toLowerCase() != current) {
+      return 'List<${changeFirstChar(className)}>';
+    } else if (v.startsWith(TAG)) {
+      var fileName = changeFirstChar(v.substring(1), false);
+      if (fileName.toLowerCase() != current) {
         set.add('import "$fileName.dart"');
       }
       return changeFirstChar(fileName);
@@ -93,21 +93,21 @@ String getType(v, Set<String> set, String current) {
   return "String";
 }
 
-
 /// 替换模版占位符
-String format(String fmt,List<Object> params) {
+String format(String fmt, List<Object> params) {
   int matchIndex = 0;
   String replace(Match m) {
     if (matchIndex < params.length) {
-      switch(m[0]) {
+      switch (m[0]) {
         case "%s":
           return params[matchIndex++].toString();
       }
-    }else {
+    } else {
       throw new Exception("Missing parameter for string format");
     }
     throw new Exception("Invalid format string: " + m[0].toString());
   }
+
   return fmt.replaceAllMapped("%s", replace);
 }
 
