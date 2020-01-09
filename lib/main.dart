@@ -2,14 +2,15 @@
  * @Author: tanyanting
  * @Date: 2020-01-07 14:23:31
  * @Last Modified by: tanyanting
- * @Last Modified time: 2020-01-07 14:26:27
+ * @Last Modified time: 2020-01-08 16:05:50
  */
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:my_first_flutter/common/Global.dart';
 
 import 'common/browser.dart';
 
-void main() => runApp(new MyApp());
+void main() => Global.init().then((e) => runApp(new MyApp()));
 
 class MyApp extends StatelessWidget {
   @override
