@@ -1,7 +1,5 @@
 # my_first_flutter —— Flutter first try
 
-> 项目参考：[《Flutter 实战》](https://book.flutterchina.club/)
-
 ## 一、搭建 Flutter 开发环境
 
 > 官网教程(macOs 版)：https://flutterchina.club/setup-macos/
@@ -68,3 +66,31 @@
 2. 设置 PATH 全局变量，参考 Flutter SDK PATH 设置全局变量
 
 ## 三、运行
+
+## 四、项目结构
+
+根目录下
+
+| 文件夹名     | 描述                                 |
+| ------------ | ------------------------------------ |
+| assets       | 静态文件                             |
+| lib          | 源代码                               |
+| shell        | shell 文件                           |
+| test         | 单元测试文件                         |
+| json         | \*可能是个临时文件夹用于生成接口模型 |
+| pubspec.yamy | 依赖包                               |
+
+lib 文件夹下
+
+| 文件夹名  | 描述                     |
+| --------- | ------------------------ |
+| widgets   | 通用组件库               |
+| utils     | 工具方/包                |
+| constants | 全局枚举类               |
+| models    | 全局 models              |
+| pages     | 页面，每个页面一个文件夹 |
+| routes    | 页面注册到 routes 中     |
+| main.dart | app 入口                 |
+| types     | \*全局类型可能无用       |
+
+路由手动添加
