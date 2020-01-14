@@ -94,3 +94,7 @@ lib 文件夹下
 | types     | \*全局类型可能无用       |
 
 路由手动添加
+
+## 五、资料
+
+1. [Flutter webview 使用和交互](https://www.jianshu.com/p/4aabe453eb26)
