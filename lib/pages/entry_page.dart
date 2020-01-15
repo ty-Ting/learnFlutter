@@ -25,7 +25,7 @@ class _EntryPagState extends State<EntryPage> {
     final _login = Provider.of<LoginModel>(context);
     print(_login.info);
     Future.delayed(Duration(seconds: 5), () {
-      if (_login.info.length <= 0) {
+      if (_login.info == null || _login.info?.token == null) {
         Application.router.navigateTo(context, Routes.login, replace: true);
       } else {
         Application.router.navigateTo(context, Routes.home, replace: true);
@@ -36,7 +36,7 @@ class _EntryPagState extends State<EntryPage> {
         title: Text('FirstPage'),
       ),
       body: Center(
-        child: Text('我是欢迎页面,value${_counter.value}',
+        child: Text('我是欢迎页面\nvalue${_counter.value}',
             style: TextStyle(fontSize: textSize)),
       ),
       floatingActionButton: FloatingActionButton(

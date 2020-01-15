@@ -91,7 +91,6 @@ lib 文件夹下
 | pages     | 页面，每个页面一个文件夹 |
 | routes    | 页面注册到 routes 中     |
 | main.dart | app 入口                 |
-| types     | \*全局类型可能无用       |
 
 路由手动添加
 
