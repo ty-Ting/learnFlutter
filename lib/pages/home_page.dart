@@ -35,8 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getList() async {
-    var response = await Request.dio.get("crm-promotion/support-cities");
-    print(response.data.toString());
+    var data = await fetch("crm-promotion/support-cities", noToken: true);
+    print(data.toString());
   }
 
   @override

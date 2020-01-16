@@ -30,6 +30,7 @@ class _EntryPagState extends State<EntryPage> {
       } else {
         Application.router.navigateTo(context, Routes.home, replace: true);
       }
+      // Application.router.navigateTo(context, Routes.home, replace: true);
     });
     return Scaffold(
       appBar: AppBar(

@@ -23,18 +23,28 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  # 在flutter中使用webview https://www.jianshu.com/p/4aabe453eb26
   webview_flutter: ^0.3.10+4
+  # json转 dart model类 https://book.flutterchina.club/chapter11/json_model.html
   json_annotation: ^2.0.0
+  # 介绍shared_preferences https://www.jianshu.com/p/735b5684e900
   shared_preferences: ^0.4.2
   path_provider: ^0.5.0+1
+  # 请求封装 https://book.flutterchina.club/chapter10/dio.html
+  # https://pub.flutter-io.cn/packages/dio
   dio: ^3.0.8
+  # 简单介绍，非官方文档 https://www.jianshu.com/p/7085019c4228
+  # https://juejin.im/post/5d00a84fe51d455a2f22023f#heading-18
+  # https://pub.flutter-io.cn/packages/provider
   provider: ^4.0.1
+  # 简单介绍 https://juejin.im/post/5d051a5b6fb9a07ec07fbdc5
   fluro: ^1.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^1.0.0
+  # json转 dart model类 https://book.flutterchina.club/chapter11/json_model.html
   json_serializable: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
