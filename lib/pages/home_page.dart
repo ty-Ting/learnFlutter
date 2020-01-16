@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_flutter/application.dart';
+import 'package:my_first_flutter/jsonTomodels/user.dart';
+import 'package:my_first_flutter/models/userModel.dart';
+import 'package:my_first_flutter/routes/routes.dart';
 import 'package:my_first_flutter/utils/request.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -20,6 +25,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -34,8 +44,23 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _fetchUserMe() async {
+    // 查找用户详情
+    var data = await fetch(
+        "https://staging-app.creams.io/api/web/users/info?clientId=creams_web_app");
+    if (data != null) {
+      print('---------用户详情--------');
+      print(data.toString());
+      print('----------end------------');
+      var user = User.fromJson(data);
+      Provider.of<UserModel>(context, listen: false).saveUser(user);
+    }
+  }
+
   void getList() async {
-    var data = await fetch("crm-promotion/support-cities", noToken: true);
+    var data = await fetch(
+        "https://staging-api.creams.io/crm-promotion/support-cities",
+        noToken: true);
     print(data.toString());
   }
 
@@ -73,12 +98,23 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('state _counter:', style: TextStyle(fontSize: 24)),
             Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
+              ' $_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            RaisedButton(
+              child: Text('查看provider用户信息'),
+              onPressed: () {
+                Application.router
+                    .navigateTo(context, Routes.second, replace: false);
+              },
+            ),
+            RaisedButton(
+              child: Text('请求用户信息'),
+              onPressed: () {
+                _fetchUserMe();
+              },
             ),
           ],
         ),

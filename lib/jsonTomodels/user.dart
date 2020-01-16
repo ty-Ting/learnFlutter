@@ -5,15 +5,28 @@ part 'user.g.dart';
 class User {
     User();
 
-    num authUserId;
-    String openId;
-    String unionId;
+    num id;
     String name;
-    String username;
-    String avatar;
+    String weChatNumber;
+    num authUserId;
+    num customerId;
+    List buildingIdList;
+    String status;
+    String role;
+    List permissions;
+    List modules;
+    Map<String,dynamic> dataAccessLevel;
+    String creatorId;
+    String dateCreate;
+    bool riskstorm;
     String email;
-    String phoneNumber;
-    List authorities;
+    String userTel;
+    String invitedUrl;
+    bool master;
+    bool currency;
+    List customRoles;
+    String avatar;
+    String authUserName;
     
     factory User.fromJson(Map<String,dynamic> json) => _$UserFromJson(json);
     Map<String, dynamic> toJson() => _$UserToJson(this);

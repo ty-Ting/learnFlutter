@@ -1,5 +1,4 @@
 {
-  "user": "$user",
   "accessToken": "",
   "tokenType": 5678,
   "cache": "$cacheConfig",

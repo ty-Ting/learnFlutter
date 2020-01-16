@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter/models/counterModel.dart';
 import 'package:my_first_flutter/models/loginModel.dart';
+import 'package:my_first_flutter/models/userModel.dart';
 import 'package:my_first_flutter/pages/entry_page.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: LoginModel()),
         ChangeNotifierProvider.value(value: CounterModel()),
+        ChangeNotifierProvider.value(value: UserModel()),
         Provider<int>.value(value: 36),
       ],
       child: MaterialApp(

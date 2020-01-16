@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:dio/dio.dart';
+import 'package:my_first_flutter/constants/Global.dart';
 
 class CacheObject {
   CacheObject(this.response)
@@ -42,13 +43,17 @@ class NetCache extends Interceptor {
   @override
   onError(DioError err) async {
     // 错误状态不缓存
+    print('---------请求出错----------');
+    print(err.toString());
+    print('-----------end------------');
   }
 
   @override
   onResponse(Response response) async {
     // 如果启用缓存，返回结果保存到缓存
-    //TODO: 设置全局变量
-    _saveCache(response);
+    if (Global.profile.cache.enable) {
+      _saveCache(response);
+    }
   }
 
   _saveCache(Response object) {
@@ -56,8 +61,11 @@ class NetCache extends Interceptor {
     if (options.extra['noCache'] != true &&
         options.method.toLowerCase() == "get") {
       // 最大缓存数100
-      //TODO: 设置全局变量
-      if (cache.length == 100) {}
+      if (cache.length == Global.profile.cache.maxCount) {
+        cache.remove(cache[cache.keys.first]);
+      }
+      String key = options.extra["cacheKey"] ?? options.uri.toString();
+      cache[key] = CacheObject(object);
     }
   }
 

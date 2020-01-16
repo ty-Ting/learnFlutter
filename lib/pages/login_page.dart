@@ -49,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
               var fs = f.split("=");
               var k = camelCase(fs[0]);
               var v = fs[1];
-              print('${k}:${v}');
               _login.setInfo(k, v);
               info[k] = v;
             });
